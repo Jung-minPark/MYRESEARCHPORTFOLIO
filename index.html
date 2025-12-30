@@ -14,10 +14,27 @@
     gtag('config', 'G-N260TG0JJT');
   </script>
 
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; }
-    iframe { width: 100%; height: 100vh; border: none; }
-  </style>
+<style>
+  html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden; /* 바깥 스크롤을 막아서 젤리 튕김 방지 */
+    font-family: Arial, sans-serif;
+  }
+
+  iframe {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: 100dvh;   /* 최신 iOS/모바일에서 주소창 변화 대응 */
+    border: none;
+  }
+
+  /* iOS Safari/크롬 구버전 fallback */
+  @supports (-webkit-touch-callout: none) {
+    iframe { height: -webkit-fill-available; }
+  }
+</style>
 
   <script>
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
