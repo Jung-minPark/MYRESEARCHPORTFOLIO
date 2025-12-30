@@ -25,10 +25,16 @@
       border: none;
     }
   </style>
-</head>
 
+  <!-- ✅ 모바일 자동 리다이렉트 (추가) -->
+  <script>
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      window.location.href = "JungminPark_Research_Portfolio.pdf";
+    }
+  </script>
+
+</head>
 <body>
   <iframe src="JungminPark_Research_Portfolio.pdf"></iframe>
 </body>
 </html>
-
