@@ -15,26 +15,25 @@
   </script>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    iframe {
-      width: 100%;
-      height: 95vh;
-      border: none;
-    }
+    body { margin: 0; font-family: Arial, sans-serif; }
+    iframe { width: 100%; height: 100vh; border: none; }
   </style>
 
-  <!-- ✅ 모바일 자동 리다이렉트 (추가) -->
   <script>
-    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-      window.location.href = "JungminPark_Research_Portfolio.pdf";
-    }
-  </script>
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const githubPdf = "JungminPark_Research_Portfolio.pdf";
+    const drivePreview = "https://drive.google.com/file/d/1mOH34MO0VY2TjHTueIVMWoFrsnpbnD5S/preview";
 
+    // 모바일이면 드라이브 프리뷰로, 아니면 깃허브 pdf로
+    window.PDF_SRC = isMobile ? drivePreview : githubPdf;
+  </script>
 </head>
+
 <body>
-  <iframe src="JungminPark_Research_Portfolio.pdf"></iframe>
+  <iframe id="pdfFrame"></iframe>
+
+  <script>
+    document.getElementById("pdfFrame").src = window.PDF_SRC;
+  </script>
 </body>
 </html>
